@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Genius</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="mx-auto max-w-7xl p-8">
+    <header
+        class="px-6 py-4 rounded bg-sky-100 flex flex-col md:flex-row lg:flex-row   justify-between xl:items-center  sm:items-start md:items-center">
+        <div>
+            <h1 class="text-4xl font-bold ">Interactive</h1>
+            <h2 class="text-gray-500 text-3xl">Geometry Genius</h2>
+        </div>
+        <div>
+            <button onclick="(window.location.href='blog.html')" class="py-2 px-6 bg-sky-400 rounded  text-white">Blog</button>
+        </div>
+    </header>
+    <main class="flex flex-col md:flex-col lg:flex-row items-center lg:items-start xl:items-start">
+        <section
+            class=" max-w-fit xl:w-9/12  container grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1  gap-8 mt-8">
+
+            <div id="triangleContainer" onmouseleave="whiteBackground('triangleContainer')" onmouseenter="randomBackground('triangleContainer')" class="p-8 rounded-xl flex flex-col gap-2 justify-between items-center text-center  shadow-md  ">
+                <div class="">
+                    <img src="../images/triangle.png" alt="">
+                </div>
+                <div class="triangle">
+                    <h2 class="text-2xl font-medium">Triangle</h2>
+                    <p>Area (A)= <span>0.5*</span><span id="baseOfTriangle">b</span><span>*</span><span
+                            id="heightOfTriangle">h</span> </p>
+                    <p id="triangle-area" class="inline">Area:<span id="estimated-area"></span><span>cm</p><sup>2</sup></span>
+                    <div>
+                        <input id="triangle-b" class="border bg-gray-100 rounded w-3/12 px-2 " type="text"
+                            placeholder="b">
+                        <span class="mr-3">cm</span>
+                        <input id="triangle-h" class="border w-3/12 rounded bg-gray-100 px-2 " type="text"
+                            placeholder="h">
+                        <span class="mr-3">cm</span>
+                    </div>
+                    <button  id="btn-triangle-calculate"
+                        class="px-6 py-2 bg-sky-500 w-fit rounded text-white my-4 text-center"> Calculate</button>
+                </div>
+            </div>
+            <div id="rectangleContaner" onmouseleave="whiteBackground('rectangleContaner')" onmouseenter="randomBackground('rectangleContaner')" class="p-8 rounded-xl flex flex-col gap-2 justify-between items-center text-center  shadow-md  ">
+                <div class="">
+                    <img src="../images/rectangle.png" alt="">
+                </div>
+                <div class="rectangle">
+                    <h2 class="text-2xl font-medium">Rectangle</h2>
+                    <p>Area (A)= W * L</p>
+                    <p id="rectangle-area" class="inline">Area:<span id="areaOfRectanlge"></span>cm</p><sup>2</sup>
+                    <div>
+
+                        <input id="rectangle-width" class="border bg-gray-100 rounded w-3/12 px-2 " type="text" placeholder="W">
+                        <span class="mr-3">cm</span>
+                        <input id="rectangle-height" class="border w-3/12 rounded bg-gray-100 px-2 " type="text" placeholder="L">
+                        <span class="mr-3">cm</span>
+                    </div>
+                    <button  id="btn-rectangle-calculate" class="px-6 py-2 bg-sky-500 w-fit rounded text-white my-4 text-center"> Calculate</button>
+                </div>
+            </div>
+            <div id="parallelogramContainer" onmouseleave="whiteBackground('parallelogramContainer')" onmouseenter="randomBackground('parallelogramContainer')" class="p-8 rounded-xl flex flex-col gap-2 justify-between items-center text-center  shadow-md  ">
+                <div class="">
+                    <img src="../images/parallelogram.png" alt="">
+                </div>
+                <div class="">
+                    <h2 class="text-2xl font-medium">Parallelogram</h2>
+                    <p>Area (A)= b * h</p>
+                    <p id="pl-area" class="inline" >Area:<span id="areaOfPl"></span>cm</p><sup>2</sup>
+                    <div>
+
+                        <input id="pl-width" class="border bg-gray-100 rounded w-3/12 px-2 " type="text" placeholder="b">
+                        <span class="mr-3">cm</span>
+                        <input id="pl-height" class="border w-3/12 rounded bg-gray-100 px-2 " type="text" placeholder="h">
+                        <span class="mr-3">cm</span>
+                    </div>
+                    <button id="btn-parallelogram-calculate" class="px-6 py-2 bg-sky-500 w-fit rounded text-white my-4 text-center"> Calculate</button>
+                </div>
+            </div>
+            <div id="rhombusM" onmouseleave="whiteBackground('rhombusM')" onmouseenter="randomBackground('rhombusM')" class="p-8 rounded-xl flex flex-col gap-2 justify-between items-center text-center  shadow-md  ">
+                <div class="">
+                    <img src="../images/rhombus.png" alt="">
+                </div>
+                <div class="">
+                    <h2 class="text-2xl font-medium">Rhombus</h2>
+                    <p>Area (A)= 0.5 * d<sub>1</sub> * d<sub>2</sub></p>
+                    <p id="rhombus-area" class="inline">Area:<span id="areaOfRm"></span>cm</p><sup>2</sup>
+
+                    <div>
+
+                        <input id="rm-d1" class="border bg-gray-100 rounded w-3/12 px-2 " type="text" placeholder="d1">
+                        <span class="mr-3">cm</span>
+                        <input id="rm-d2" class="border w-3/12 rounded bg-gray-100 px-2 " type="text" placeholder="d2">
+                        <span class="mr-3">cm</span>
+                    </div>
+                    <button  id="btn-Rhombus-calculate" class="px-6 py-2 bg-sky-500 w-fit rounded text-white my-4 text-center"> Calculate</button>
+                </div>
+            </div>
+            <div id="pentagon" onmouseleave="whiteBackground('pentagon')" onmouseenter="randomBackground('pentagon')" class="p-8 rounded-xl flex flex-col gap-2 justify-between items-center text-center  shadow-md  ">
+                <div class="">
+                    <img src="../images/pentagon.png" alt="">
+                </div>
+                <div class="">
+                    <h2 class="text-2xl font-medium">Pentagon</h2>
+                    <p>Area (A)= 0.5 * p * b</p>
+                    <p id="pentagon-area" class="inline">Area:<span id="areaOfPn"></span>cm</p><sup>2</sup>
+                    <div>
+
+                        <input id="pn-1" class="border bg-gray-100 rounded w-3/12 px-2 " type="text" placeholder="p">
+                        <span class="mr-3">cm</span>
+                        <input id="pn-2" class="border w-3/12 rounded bg-gray-100 px-2 " type="text" placeholder="b">
+                        <span class="mr-3">cm</span>
+                    </div>
+                    <button  id="btn-pentagon-calculate" class="px-6 py-2 bg-sky-500 w-fit rounded text-white my-4 text-center"> Calculate</button>
+                </div>
+            </div>
+            <div id="ellipse" onmouseleave="whiteBackground('ellipse')" onmouseenter="randomBackground('ellipse')" class="p-8 rounded-xl flex flex-col gap-2 justify-between items-center text-center  shadow-md hover:bg-ran ">
+                <div  class="">
+                    <img src="../images/ellipse.png" alt="">
+                </div>
+                <div class="">
+                    <h2 class="text-2xl font-medium">Ellipse</h2>
+                    <p>Area (A)= πab</p>
+                    <div>
+                        <p id="el-area" class="inline">Area:<span id="areaOfEl"></span>cm</p><sup>2</sup>
+                    </div>
+
+                    <div>
+
+                        <input id="el-1" class="border bg-gray-100 rounded w-3/12 px-2 " type="text" placeholder="a">
+                        <span class="mr-3">cm</span>
+                        <input id="el-2" class="border w-3/12 rounded bg-gray-100 px-2 " type="text" placeholder="b">
+                        <span class="mr-3">cm</span>
+                    </div>
+                    <button  id="btn-ellipse-calculate" class="px-6 py-2 bg-sky-500 w-fit rounded text-white my-4 text-center"> Calculate</button>
+                </div>
+            </div>
+        </section>
+        <section class="w-full lg:w-5/12 xl:w-3/12   mt-8 lg:ml-8">
+            <div    class="p-8 rounded-xl flex flex-col gap-2 row-span-2 justify-between items-center text-center  shadow-md  ">
+                
+                <ol id="appendix-container" class=" flex flex-col items-center justify-center list-disc">
+                    
+                    
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/area.js"></script>
+</body>
+
+</html>
