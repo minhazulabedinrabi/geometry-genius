@@ -1,4 +1,7 @@
-// input catch
+/*-----------------------------------------------------------------
+---------function for getting value from any input field-----------
+------------------------------------------------------------------ */
+
 function inputValueCatcher(idOfInputField) {
 
     const inputValueField = document.getElementById(idOfInputField);
@@ -16,7 +19,9 @@ function inputValueCatcher(idOfInputField) {
     }
 }
 
-//area calculation
+/*------------------------------------------------
+------ Function for calculation any area----------
+--------------------------------------------------*/
 
 function areaCalculator(value1, value2, value3) {
     var area = value1 * value2 * value3;
@@ -29,6 +34,11 @@ function areaCalculator(value1, value2, value3) {
     }
     return area;
 }
+
+/*---------------------------------------------------------------
+-------------function for changing inner text of element---------
+----------------------------------------------------------------- */
+
 function innerTextChanger(idOfElement, value) {
     if (isNaN(value)) {
         document.getElementById(idOfElement).innerText = 0;
@@ -39,24 +49,27 @@ function innerTextChanger(idOfElement, value) {
     }
 }
 
-//append child
+/*-----------------------------------------------------------
+--------------function for append child----------------------
+-------------------------------------------------------------*/
 
 function elementAdder(value) {
     var node1 = document.createElement("li");
     var div = document.createElement('div');
+    var btnClose=document.createElement('button');
+    var node2 = document.createElement('button');
+    var sup = document.createElement('sup');
+
     div.classList.add('flex','items-center','justify-between','no-shrink')
     node1.classList.add('w-full', 'm-3', 'list-decimal');
-    var btnClose=document.createElement('button');
-    const idOfCloseBtn=value+'close';
-    btnClose.innerText='X';
-    btnClose.id(idOfCloseBtn);
-    console.assert(idOfCloseBtn)
-    btnClose.classList.add('rounded','px-2','bg-gray-200',);
-    var node2 = document.createElement('button');
-    node2.innerText = 'convert';
-    var sup = document.createElement('sup');
-    sup.innerText = 2;
+    btnClose.classList.add('rounded','px-2','bg-gray-200');
     node2.classList.add( "bg-sky-500", 'w-fit', 'py-1', 'px-3', 'rounded', 'text-white', 'text-center');
+    
+    node2.innerText = 'convert';
+    btnClose.innerText='X';
+    const idOfBtnClose= btnClose.setAttribute('id',value+'id');
+    btnClose.setAttribute('onclick','removeChildOfElement()');
+    sup.innerText = 2;
     div.innerText = document.getElementById(value).innerText;
 
     div.appendChild(sup);
@@ -65,10 +78,19 @@ function elementAdder(value) {
     node1.appendChild(div);
 
     document.getElementById('appendix-container').appendChild(node1);
-
-
-
 }
+
+function removeChildOfElement(){
+    const element= event.target.parentElement.parentElement;
+    element.remove();
+    
+}
+
+
+
+/*-----------------------------------------------------------
+-------------------Function for random background------------
+------------------------------------------------------------- */
 
 function randomBackground(id) {
     function randomNumberCreator() {
@@ -84,14 +106,16 @@ function randomBackground(id) {
     var bgColor = '#' + x + y + z + '55';
 
     document.getElementById(id).style.backgroundColor = bgColor;
-
-
 }
 function whiteBackground(id) {
     document.getElementById(id).style.backgroundColor = '';
-
 }
-// getting button under clicked
+
+
+/*------------------------------------------------------------
+----------------------event handeller for triangle------------
+ -------------------------------------------------------------*/
+
 document.getElementById('btn-triangle-calculate').addEventListener('click', function () {
     const triangleBase = inputValueCatcher('triangle-b');
     const triangleHight = inputValueCatcher('triangle-h');
@@ -105,6 +129,10 @@ document.getElementById('btn-triangle-calculate').addEventListener('click', func
         elementAdder('triangle-area')
     }
 })
+
+/*------------------------------------------------------------
+----------------------event handeller for rectangle------------
+ -------------------------------------------------------------*/
 
 document.getElementById('btn-rectangle-calculate').addEventListener('click', function () {
     const rectangleWidth = inputValueCatcher('rectangle-width');
@@ -120,6 +148,10 @@ document.getElementById('btn-rectangle-calculate').addEventListener('click', fun
     }
 
 })
+
+/*-----------------------------------------------------------------
+----------------------event handeller for parallelogram------------
+ ------------------------------------------------------------------*/
 document.getElementById('btn-parallelogram-calculate').addEventListener('click', function () {
     const plWidth = inputValueCatcher('pl-width');
     const plHeight = inputValueCatcher('pl-height');
@@ -134,6 +166,11 @@ document.getElementById('btn-parallelogram-calculate').addEventListener('click',
     }
 
 })
+
+/*-------------------------------------------------------------
+----------------------event handeller for Rhombus--------------
+ -------------------------------------------------------------*/
+
 document.getElementById('btn-Rhombus-calculate').addEventListener('click', function () {
     const rmD1 = inputValueCatcher('rm-d1');
     const rmD2 = inputValueCatcher('rm-d2');
@@ -149,6 +186,11 @@ document.getElementById('btn-Rhombus-calculate').addEventListener('click', funct
     }
 
 })
+
+/*------------------------------------------------------------
+----------------------event handeller for pentagon------------
+-------------------------------------------------------------*/
+
 document.getElementById('btn-pentagon-calculate').addEventListener('click', function () {
     const input1 = inputValueCatcher('pn-1');
     const input2 = inputValueCatcher('pn-2');
@@ -163,6 +205,10 @@ document.getElementById('btn-pentagon-calculate').addEventListener('click', func
     }
 
 })
+
+/*------------------------------------------------------------
+----------------------event handeller for ellipse------------
+ -------------------------------------------------------------*/
 document.getElementById('btn-ellipse-calculate').addEventListener('click', function () {
     const input1 = inputValueCatcher('el-1');
     const input2 = inputValueCatcher('el-2');
